@@ -1,27 +1,29 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
+import { get, req } from '../request'
 
 
 
 export default function Home(props) {
-    const [date, setDate] = useState(null)
+    const [shift, setShift] = useState(null)
 
-    const click = (value, event) => {
-        setDate(value)
+    const select = (value) => {
+        setShift({ date: value })
     }
 
     const submit = () => {
-        fetch()
+        req('shifts', {shift})
+            .then(data => data.message)
     }
 
 
     return (
         <div>
-            <Calendar onClickDay={click}/>
-            { date ? (
+            <Calendar onClickDay={select}/>
+            { shift ? (
                 <div>
-                    <p className="">{date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</p>
+                    <p className="">{shift.date.getDate()}/{shift.date.getMonth()+1}/{shift.date.getFullYear()}</p>
                     <button className="border text-white rounded-md bg-slate-500 px-3 py-1" onClick={submit}>Submit</button>
                 </div>
             )
