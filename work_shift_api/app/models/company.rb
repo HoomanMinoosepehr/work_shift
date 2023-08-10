@@ -4,8 +4,14 @@ class Company < ApplicationRecord
     has_many :managers, dependent: :destroy
     has_many :employees, dependent: :destroy
 
-    def capitalize
-        self.company_name = company_name.capitalize if company_name.present?
+    def full_name
+        "#{first_name} #{last_name}"
     end
+    
+    private
 
+    def capitalize
+        self.first_name = first_name.capitalize if first_name.present?
+        self.last_name = last_name.capitalize if last_name.present?
+    end
 end

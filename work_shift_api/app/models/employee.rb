@@ -1,4 +1,5 @@
 class Employee < ApplicationRecord
+  has_secure_password
   before_save :capitalize
   belongs_to :company
   has_many :shifts, dependent: :destroy

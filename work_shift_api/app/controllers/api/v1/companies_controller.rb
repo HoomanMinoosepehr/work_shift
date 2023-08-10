@@ -16,7 +16,8 @@ class Api::V1::CompaniesController < ApplicationController
 
     def company_params
         params.require(:company).permit(
-            :user_name,
+            :first_name,
+            :last_name,
             :email,
             :password,
             :password_confirmation,

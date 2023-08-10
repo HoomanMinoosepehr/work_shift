@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :companies ,only: [:create]
       resources :shifts, only: [:create]
+      resources :managers, only: [:create, :index]
+      resources :employees, only: [:create, :index]
+      post 'sessions' => 'sessions#create'
+      delete 'sessions' => 'sessions#destroy'
     end
   end
 end
