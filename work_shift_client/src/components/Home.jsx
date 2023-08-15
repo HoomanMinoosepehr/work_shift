@@ -19,7 +19,7 @@ export default function Home(props) {
 
 
     return (
-        <div>
+        <div className="m-2">
             <Calendar onClickDay={select}/>
             { shift ? (
                 <div>

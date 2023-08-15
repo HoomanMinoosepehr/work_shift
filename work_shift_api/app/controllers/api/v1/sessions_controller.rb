@@ -12,7 +12,8 @@ class Api::V1::SessionsController < ApplicationController
 
         if @user && @user.authenticate(params[:password])
             session[:id] = @user.id
-            session[:type] = type
+            session[:full_name] = @user.full_name
+            session[:type] = type.capitalize
             render json: { user: @user.full_name, message: "Successfully sigend in!", status: 200 }
         else
             render json: { message: 'Email or Password is wrong!', status: 422 }
@@ -23,6 +24,10 @@ class Api::V1::SessionsController < ApplicationController
     def destroy
         session = nil
         render json: { message: 'Successfully logged out!', status: 200 }
+    end
+
+    def current
+        render json: { id: session[:id], name: session[:full_name], type: session[:type] }
     end
 
 end

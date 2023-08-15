@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :employees, only: [:create, :index]
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
+      get 'sessions' => 'sessions#current'
     end
   end
 end
