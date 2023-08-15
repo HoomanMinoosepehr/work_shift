@@ -19,9 +19,17 @@ export function NavBar(props) {
             {
                 props.user ? (
                     <div className="flex flex-row">
+                        { props.type === 'owner' ? (
+                            <div className="flex flex-row">
+                                <NavLink to={'/managers'}>Managers</NavLink>
+                                <NavLink to={'/employees'}>Employees</NavLink>
+                            </div>
+                        ) : (
+                            null
+                        )}
                         <div className="mx-2">
                             <p>Hello, {props.user.name}</p>
-                            <p>Your Role in Company is: <span className="text-green-600">{props.user.type}</span></p>
+                            <p>Your Role in Company is : <span className="text-green-600">{props.user.type}</span></p>
                         </div>
                         <RedButton onClick={props.logOut} label='Log Out' />
                     </div>

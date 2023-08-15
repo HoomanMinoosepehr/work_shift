@@ -22,7 +22,9 @@ class Api::V1::SessionsController < ApplicationController
     end
 
     def destroy
-        session = nil
+        session[:id] = nil
+        session[:name] = nil
+        session[:type] = nil
         render json: { message: 'Successfully logged out!', status: 200 }
     end
 
