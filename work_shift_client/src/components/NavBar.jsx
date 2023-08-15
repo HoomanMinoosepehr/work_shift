@@ -18,12 +18,14 @@ export function NavBar(props) {
             
             {
                 props.user ? (
-                    <div className="flex flex-row">
-                        { props.type === 'owner' ? (
-                            <div className="flex flex-row">
+                    <div className="flex flex-row justify-around">
+                        { props.user.type === 'Owner' ? (
+                            <div className="flex flex-row justify-around">
                                 <NavLink to={'/managers'}>Managers</NavLink>
                                 <NavLink to={'/employees'}>Employees</NavLink>
                             </div>
+                        ) : props.user.type === 'Manager' ? (
+                            <NavLink to={'/employees'}>Employees</NavLink>
                         ) : (
                             null
                         )}
