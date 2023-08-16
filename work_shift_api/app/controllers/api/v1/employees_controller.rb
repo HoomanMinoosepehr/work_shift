@@ -15,8 +15,17 @@ class Api::V1::EmployeesController < ApplicationController
     end
 
     def index
-        company = current_user.company
-        render json: company
+        if session[:type] === 'Owner'
+            company = Company.find session[:id]
+        elsif session[:type] === 'Manager'
+            manager = Manager.find session[:id]
+            company = manager.company
+        end
+
+        employees = company.employees
+
+        render json: employees
+
     end
 
     private

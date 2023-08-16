@@ -16,12 +16,12 @@ class Api::V1::SessionsController < ApplicationController
             session[:type] = type.capitalize
             render json: { user: @user.full_name, message: "Successfully sigend in!", status: 200 }
         else
-            render json: { message: 'Email or Password is wrong!', status: 422 }
+            render json: { message: 'Email or Password or selected role is wrong!', status: 422 }
         end
 
     end
 
-    def destroy
+    def destroy 
         session[:id] = nil
         session[:name] = nil
         session[:type] = nil

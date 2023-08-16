@@ -1,7 +1,8 @@
 class Api::V1::ManagersController < ApplicationController
 
     def index
-        manager = Manager.find 1
+        owner = Company.find session[:id]
+        manager = owner.managers
         render json: manager
     end
 
