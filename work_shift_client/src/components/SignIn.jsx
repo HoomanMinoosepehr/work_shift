@@ -16,7 +16,6 @@ export function SignIn(props) {
             ...user,
             [name]: value
         })
-        console.log(user)
     }
 
     const onClick = () => {
@@ -33,8 +32,21 @@ export function SignIn(props) {
 
     return (
         <div className="p-3">
-            <Input label='Email' placeholder="Enter your email" id='email' onChange={onChange} />
-            <Input label="Password" type="password" id="password" onChange={onChange} />
+
+            <Input 
+            label='Email' 
+            placeholder="Enter your email" 
+            id='email' 
+            onChange={onChange} 
+            />
+
+            <Input 
+            label="Password" 
+            type="password" 
+            id="password" 
+            onChange={onChange} 
+            />
+
             <div className="mt-3">
                 <label htmlFor="">Role:</label><br />
                 <select className="p-2 border-yellow-600 rounded-md" name="type" id="type" onChange={onChange}>
@@ -44,9 +56,16 @@ export function SignIn(props) {
                     <option value="owner">Owner</option>
                 </select>
             </div>
+
             <div className="mt-3">
-                <GreenButton label='Sign In' onClick={onClick}/>
+
+                <GreenButton 
+                label='Sign In' 
+                onClick={onClick}
+                />
+                
             </div>
+
         </div>
     )
 }

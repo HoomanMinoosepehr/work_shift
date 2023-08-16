@@ -27,7 +27,7 @@ export function NavBar(props) {
                         ) : props.user.type === 'Manager' ? (
                             <NavLink to={'/employees'}>Employees</NavLink>
                         ) : (
-                            null
+                            <NavLink to={'/schedule'}>Schedule</NavLink>
                         )}
                         <div className="mx-2">
                             <p>Hello, {props.user.name}</p>

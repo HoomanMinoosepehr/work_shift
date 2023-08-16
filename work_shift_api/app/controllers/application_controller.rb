@@ -22,4 +22,14 @@ class ApplicationController < ActionController::API
 
     end
 
+    def company_get
+        case session[:type]
+        when 'Owner'
+            return Company.find session[:id]
+        when "Manager"
+            manager = Manager.find session[:id]
+            return manager.company
+        end
+    end
+
 end

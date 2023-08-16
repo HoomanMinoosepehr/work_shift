@@ -4,9 +4,13 @@ import { SignIn } from "./components/SignIn";
 import { NavBar } from "./components/NavBar";
 import { useEffect, useState } from "react";
 import { req, get } from "./request";
+import { Managers } from "./components/Managers";
+import { Employees } from "./components/Employees";
+import { NewManager } from "./components/NewManager";
+import { NewEmployee } from "./components/NewEmployee";
 
 function App() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -32,7 +36,7 @@ function App() {
     req("sessions", null, 'DELETE')
       .then( data => {
         if (data.status === 200) {
-          // navigate('/')
+          navigate('/')
           setUser(null)
         }
       })
@@ -40,13 +44,15 @@ function App() {
 
   return (
     <div>
-      <Router>
-      <NavBar user={user} logOut={logOut}/>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/sign-in" element={<SignIn current={current}/>}/>
-        </Routes>
-      </Router>
+      <NavBar user={user} logOut={logOut} />
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="sign-in" element={<SignIn current={current}/>} />
+        <Route path="managers" element={<Managers/>} />
+        <Route path="managers/new" element={<NewManager/>} />
+        <Route path="employees" element={<Employees/>} />
+        <Route path="employees/new" element={<NewEmployee/>} />
+      </Routes>
     </div>
   );
 }

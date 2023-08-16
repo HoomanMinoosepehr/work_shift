@@ -9,7 +9,8 @@ class Api::V1::ManagersController < ApplicationController
     def create
         
         manager = Manager.new manager_params
-        manager.company = current_user
+        company = Company.find session[:id]
+        manager.company = company
 
         if manager.save
             render json: { message: "Manager added successfully!", status: 200 }

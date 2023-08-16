@@ -3,8 +3,9 @@ class Api::V1::EmployeesController < ApplicationController
     def create
 
         @employee = Employee.new employee_params
-        company_id = @current_user[:company_id]
-        @employee[:company_id] = company_id
+        company = company_get
+
+        @employee[:company_id] = company.id
 
         if @employee.save
             render json: { message: "Employee added to your company.", status: 200 }
@@ -15,12 +16,8 @@ class Api::V1::EmployeesController < ApplicationController
     end
 
     def index
-        if session[:type] === 'Owner'
-            company = Company.find session[:id]
-        elsif session[:type] === 'Manager'
-            manager = Manager.find session[:id]
-            company = manager.company
-        end
+
+        company = company_get
 
         employees = company.employees
 
