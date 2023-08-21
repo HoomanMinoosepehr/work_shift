@@ -10,7 +10,8 @@ export function GreenButton(props) {
         bg-green-100 
         hover:text-green-100 
         hover:bg-green-700 
-        hover:scale-110"
+        hover:scale-110
+        duration-300"
         onClick={props.onClick}
         >{props.label}</button>
     )
@@ -28,7 +29,8 @@ export function RedButton(props) {
         hover:text-yellow-400 
         hover:bg-red-700 
         hover:border-black
-        hover:scale-110"
+        hover:scale-110
+        duration-300"
         onClick={props.onClick}
         >{props.label}</button>
     )

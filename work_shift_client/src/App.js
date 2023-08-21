@@ -8,9 +8,11 @@ import { Managers } from "./components/Managers";
 import { Employees } from "./components/Employees";
 import { NewManager } from "./components/NewManager";
 import { NewEmployee } from "./components/NewEmployee";
+import { Alert } from "./components/Alert";
 
 function App() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [alert, setAlert] = useState(null)
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -36,6 +38,7 @@ function App() {
     req("sessions", null, 'DELETE')
       .then( data => {
         if (data.status === 200) {
+          setAlert({ color:'yellow', message: data.message })
           navigate('/')
           setUser(null)
         }
@@ -45,9 +48,14 @@ function App() {
   return (
     <div>
       <NavBar user={user} logOut={logOut} />
+      { alert ? 
+        <Alert {...alert} setAlert={setAlert}/>
+        :
+        null
+      }
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="sign-in" element={<SignIn current={current}/>} />
+        <Route path="sign-in" element={<SignIn setAlert={setAlert} current={current}/>} />
         <Route path="managers" element={<Managers/>} />
         <Route path="managers/new" element={<NewManager/>} />
         <Route path="employees" element={<Employees/>} />

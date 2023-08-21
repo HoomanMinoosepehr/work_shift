@@ -22,10 +22,11 @@ export function SignIn(props) {
         req('sessions', user)
             .then(data => {
                 if (data.status === 200) {
+                    props.setAlert({ color:'green', message: data.message })
                     props.current()
                     navigate('/')
                 } else {
-
+                    props.setAlert({ color:'red', message: data.message })
                 }
             })
     }
