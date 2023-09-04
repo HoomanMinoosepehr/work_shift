@@ -25,14 +25,15 @@ export function Alert(props) {
         ${bgColor[props.color]}
         bg-opacity-70
         text-white`}>
-
-            {Array.isArray(props.message) ? (
-                props.message.map((message, index) => (
-                    <p key={index}>{message}</p>
-                ))
-            ) : (
-                <p>{props.message}</p>
-            )}
+            <div>
+                {Array.isArray(props.message) ? (
+                    props.message.map((message, index) => (
+                        <p key={index}>{message}</p>
+                    ))
+                ) : (
+                    <p>{props.message}</p>
+                )}
+            </div>
             <button className="border
             rounded-md
             w-fit

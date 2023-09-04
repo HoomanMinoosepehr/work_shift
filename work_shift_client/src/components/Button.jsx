@@ -36,3 +36,21 @@ export function RedButton(props) {
     )
 
 }
+
+export function YellowButton(props) {
+    return (
+        <button 
+        className="border 
+        border-red-700 
+        rounded-md px-2 py-1 
+        text-red-700 
+        bg-yellow-400 
+        hover:text-white 
+        hover:bg-yellow-700 
+        hover:border-black
+        hover:scale-110
+        duration-300"
+        onClick={props.onClick}
+        >{props.label}</button>
+    )
+}
