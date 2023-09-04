@@ -24,14 +24,29 @@ export function Employees(props) {
                     employees.map((employee, index) => {
                         return (
                             <div key={index}>
+                            <button className="border
+                            w-1/2
+                            rounded-md
+                            mt-4
+                            flex
+                            py-1
+                            bg-gray-300
+                            hover:bg-gray-700
+                            hover:text-white
+                            px-2
+                            duration-200"
+                            >
                                 <p>{employee.full_name}</p>
-                            </div>
+                            </button>
+                        </div>
                         )
                     })
                 ) : (
                     <p>There is no Employee yet.</p>
                 )}
-                <GreenButton label='Add Employee' onClick={newEmployee}/>
+                <div className="mt-3">
+                    <GreenButton label='Add Employee' onClick={newEmployee}/>
+                </div>
             </div>
         </div>
     )

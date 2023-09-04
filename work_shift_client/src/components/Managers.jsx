@@ -21,7 +21,20 @@ export function Managers(props) {
                 managers.map((manager, index) => {
                     return (
                         <div key={index}>
-                            <p>{manager.full_name}</p>
+                            <button className="border
+                            w-1/2
+                            rounded-md
+                            mt-4
+                            flex
+                            py-1
+                            bg-gray-300
+                            hover:bg-gray-700
+                            hover:text-white
+                            px-2
+                            duration-200"
+                            >
+                                <p>{manager.full_name}</p>
+                            </button>
                         </div>
                     )
                 })

@@ -15,7 +15,7 @@ class Api::V1::ManagersController < ApplicationController
         if manager.save
             render json: { message: "Manager added successfully!", status: 200 }
         else
-            render json: { message: manager.errors.messages, status: 422 }
+            render json: { message: manager.errors.full_messages, status: 422 }
         end
 
     end

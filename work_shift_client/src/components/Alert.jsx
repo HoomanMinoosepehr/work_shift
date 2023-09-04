@@ -10,7 +10,6 @@ export function Alert(props) {
 
 
     return (
-
         <div className={`absolute
         left-1/2
         top-20
@@ -27,7 +26,13 @@ export function Alert(props) {
         bg-opacity-70
         text-white`}>
 
-            {props.message}
+            {Array.isArray(props.message) ? (
+                props.message.map((message, index) => (
+                    <p key={index}>{message}</p>
+                ))
+            ) : (
+                <p>{props.message}</p>
+            )}
             <button className="border
             rounded-md
             w-fit

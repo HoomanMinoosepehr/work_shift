@@ -9,6 +9,8 @@ import { Employees } from "./components/Employees";
 import { NewManager } from "./components/NewManager";
 import { NewEmployee } from "./components/NewEmployee";
 import { Alert } from "./components/Alert";
+import { OwnerAuth } from "./components/OwnerAuth";
+import { NotFound } from "./components/NotFound";
 
 function App() {
   const navigate = useNavigate();
@@ -56,10 +58,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="sign-in" element={<SignIn setAlert={setAlert} current={current}/>} />
-        <Route path="managers" element={<Managers/>} />
-        <Route path="managers/new" element={<NewManager/>} />
+        <Route path="managers" element={<OwnerAuth user={user} setAlert={setAlert} page={<Managers/>}/>} />
+        <Route path="managers/new" element={<NewManager setAlert={setAlert}/>} />
         <Route path="employees" element={<Employees/>} />
         <Route path="employees/new" element={<NewEmployee/>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </div>
   );
