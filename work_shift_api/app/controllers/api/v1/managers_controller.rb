@@ -20,6 +20,24 @@ class Api::V1::ManagersController < ApplicationController
 
     end
 
+    def show
+        manager = Manager.find params[:id]
+        if manager
+            render json: { manager: manager, full_name: manager.full_name, status: 200 }
+        else
+            render json: { message: 'Something went wrong, please try again later.', status: 422 }
+        end
+    end
+
+    def destroy
+        manager = Manager.find params[:id]
+        if manager.destroy
+            render json: { message: "Manager deleted successfully", status: 200 }
+        else
+            render json: { message: 'Something went wrong, please try again later.', status: 422 }
+        end
+    end
+
     private
 
     def manager_params

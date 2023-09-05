@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :companies ,only: [:create]
-      resources :shifts, only: [:create, :index]
-      resources :managers, only: [:create, :index]
+      resources :shifts, only: [:create]
+      resources :managers, only: [:create, :index, :show, :destroy]
       resources :employees, only: [:create, :index]
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
       get 'sessions' => 'sessions#current'
+      post 'assign' => 'shifts#index'
     end
   end
 end

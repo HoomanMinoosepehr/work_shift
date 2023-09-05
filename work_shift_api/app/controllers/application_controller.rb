@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
                             when 'manager' then Manager.find_by_id session[:id]
                             when 'employee' then Employee.find_by_id session[:id]
                             else nil
-                            end
+                           end
 
     end
 

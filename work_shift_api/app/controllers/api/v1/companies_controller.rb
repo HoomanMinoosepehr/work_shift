@@ -12,6 +12,12 @@ class Api::V1::CompaniesController < ApplicationController
 
     end
 
+    def employees
+        company = Company.find params[:id]
+
+        render json: {employees: company.employees}
+    end
+
     private
 
     def company_params

@@ -10,7 +10,7 @@ class Api::V1::EmployeesController < ApplicationController
         if @employee.save
             render json: { message: "Employee added to your company.", status: 200 }
         else
-            render json: { message: @employee.errors.messages, status: 422 }
+            render json: { message: @employee.errors.full_messages, status: 422 }
         end
 
     end

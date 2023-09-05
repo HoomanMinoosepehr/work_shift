@@ -11,6 +11,7 @@ import { NewEmployee } from "./components/NewEmployee";
 import { Alert } from "./components/Alert";
 import { OwnerAuth } from "./components/OwnerAuth";
 import { NotFound } from "./components/NotFound";
+import { SetShifts } from "./components/SetShifts";
 
 function App() {
   const navigate = useNavigate();
@@ -28,7 +29,8 @@ function App() {
           setUser({
             id: data.id,
             name: data.name,
-            type: data.type
+            type: data.type,
+            // company_id: data
           })
         } else {
           setUser(null)
@@ -62,6 +64,7 @@ function App() {
         <Route path="managers/new" element={<NewManager setAlert={setAlert}/>} />
         <Route path="employees" element={<Employees/>} />
         <Route path="employees/new" element={<NewEmployee setAlert={setAlert}/>} />
+        <Route path="shifts" element={<SetShifts/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
     </div>

@@ -23,9 +23,13 @@ export function NavBar(props) {
                             <div className="flex flex-row justify-around">
                                 <NavLink to={'/managers'}>Managers</NavLink>
                                 <NavLink to={'/employees'}>Employees</NavLink>
+                                <NavLink to={'/shifts'}>Shifts</NavLink>
                             </div>
                         ) : props.user.type === 'Manager' ? (
-                            <NavLink to={'/employees'}>Employees</NavLink>
+                            <div>
+                                <NavLink to={'/employees'}>Employees</NavLink>
+                                <NavLink to={'/shifts'}>Shifts</NavLink>
+                            </div>
                         ) : (
                             <NavLink to={'/schedule'}>Schedule</NavLink>
                         )}

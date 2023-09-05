@@ -1,31 +1,26 @@
 class Api::V1::ShiftsController < ApplicationController
 
     def create
-        # @date = DateTime.new(2023, 8, 11)
-        # @shift = Shift.new shift_params
-        # employee = Employee.find 1
-        # @shift.employee = employee
+        @shift = Shift.new shift_params
+        # @shift[:employee_id] = params.require(:shift).permit(:employee_id)
 
-        # if @shift.save
-        #     render json: { message: "Shift saved successfully.", status: 200 }
-        # else
-        #     render json: { message: @shift.errors.messages, status: 422 }
-        # end
-        @shift = Shift.find_by(params.require(:shift).permit(:date))
-        # employee = Employee.find 1
-        # @shift.employee = employee
-        # render json: { now: @date }
-        # if @shift.save
-        #         render json: { message: "Shift saved successfully.", status: 200 }
-        #     else
-        #         render json: { message: @shift.errors.messages, status: 422 }
-        #     end
-        render json: { time: @shift }
+        if @shift.save
+            render json: { message: "Shift saved successfully.", status: 200 }
+        else
+            render json: { message: @shift.errors.messages, status: 422 }
+        end
     end
 
-    def index 
-        @shift = Shift.find 1
-        render json: { date: @shift.date }
+    def index
+        shifts = Shift.where(date: params[:date])
+        p '====='
+        p params[:date]
+        # date = Shift.find 7
+        # date.date.to_s
+        p '------'
+        p shifts
+        render json: shifts, each_serializer: ShiftIndexSerializer
+        # render json: { date: date.date.to_s, start: date.start_time.to_s, time: date.start_time }
     end
 
 
@@ -35,7 +30,8 @@ class Api::V1::ShiftsController < ApplicationController
         params.require(:shift).permit(
             :date,
             :start_time,
-            :end_time
+            :end_time,
+            :employee_id
         )
     end
 
