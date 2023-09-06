@@ -64,7 +64,7 @@ function App() {
         <Route path="managers/new" element={<NewManager setAlert={setAlert}/>} />
         <Route path="employees" element={<Employees/>} />
         <Route path="employees/new" element={<NewEmployee setAlert={setAlert}/>} />
-        <Route path="shifts" element={<SetShifts/>} />
+        <Route path="shifts" element={<SetShifts setAlert={setAlert}/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
     </div>

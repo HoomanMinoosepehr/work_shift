@@ -5,7 +5,8 @@ export function GreenButton(props) {
         <button 
         className="border 
         border-green-700 
-        rounded-md px-2 py-1 
+        rounded-md px-2 py-1
+        mt-2
         text-green-700 
         bg-green-100 
         hover:text-green-100 

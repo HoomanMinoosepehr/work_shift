@@ -10,6 +10,7 @@ export function SetShifts(props) {
     const [employees, setEmployees] = useState([])
     const [shift, setShift] = useState(null)
     const [assigned, setAssigned] = useState([])
+    const [names, setNames] = useState([])
 
     useEffect(() => {
         get(`employees`)
@@ -19,9 +20,14 @@ export function SetShifts(props) {
     }, [])
 
     const select = (value) => {
+        setShift({ date: value, start_time: '08:00', end_time: '17:00' })
         setDate({ date: value })
-        setShift({ date: value })
-        req(`assign`, {date: value})
+        assigning(value)
+        
+    }
+
+    const assigning = date => {
+        req(`assign`, {date: date})
             .then(data => {
                 setAssigned(data)
                 console.log(data)
@@ -39,6 +45,14 @@ export function SetShifts(props) {
 
     const assign = () => {
         req(`shifts`, {shift})
+            .then(data => {
+                if(data.status === 200){
+                    props.setAlert({color: 'green', message: 'Shift is assigned successfully.'})
+                    assigning(date.date)
+                } else {
+                    props.setAlert({color: 'red', message: "Shift has been alread assigned to this employee!"})
+                }
+            })
             
     }
 
@@ -48,8 +62,8 @@ export function SetShifts(props) {
             { date ? (
                 <div className="border rounded-xl p-3 m-3 flex">
                     <div className="grow border rounded-md m-1 p-2">
-                        <p className="">Date: {date.date.getDate()}/{date.date.getMonth()+1}/{date.date.getFullYear()}</p>
-                        <div className="">
+                        <p className="text-xl">Date: {date.date.getDate()}/{date.date.getMonth()+1}/{date.date.getFullYear()}</p>
+                        <div className="mt-2">
                             <div>
                                 <label
                                 htmlFor="name">
@@ -68,26 +82,27 @@ export function SetShifts(props) {
                                     }
                                 </select>
                             </div>
-                            <div>
+                            <div className="mt-1">
                                 <label
                                 htmlFor="">
                                     Starting hour:
                                 </label>
                                 <input
                                 className="border
+                                p-1 mx-1
                                 rounded-lg"
                                 type="time"
                                 name="start_time"
                                 defaultValue='08:00'
                                 onChange={onChange}/>
                             </div>
-                            <div>
+                            <div className="mt-1">
                                 <label
                                 htmlFor="">
                                     Ending hour:
                                 </label>
                                 <input
-                                className="border rounded-lg"
+                                className="border rounded-lg p-1 mx-1"
                                 type="time"
                                 name="end_time"
                                 defaultValue='17:00'
@@ -97,11 +112,17 @@ export function SetShifts(props) {
                         </div>
                     </div>
                     <div className="border grow rounded-md m-1 p-2">
-                        <p>Assigned Shifts:</p>
+                        <p className="text-xl">Assigned Shifts:</p>
                         { assigned.length == 0 ? (
                             <p className="text-xl text-red-500 m-2">No Shift been assigned for this date!</p>
                         ) : (
-                            null
+                            assigned.map(shift => {
+                                return (
+                                    <div className="border rounded-md bg-green-800 text-white mt-2 px-2">
+                                        <p><span className="text-yellow-400">{shift.employee.full_name}</span>: <span className="text-blue-300">{shift.formatted_start}</span> to <span className="text-red-400">{shift.formatted_end}</span></p>
+                                    </div>
+                                )
+                            })
                         )}
                     </div>
                 </div>
