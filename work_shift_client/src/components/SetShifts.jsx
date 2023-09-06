@@ -141,7 +141,7 @@ export function SetShifts(props) {
                                     content-center
                                     justify-between">
                                         <div>
-                                            <p><span className="text-yellow-400">{shift.employee.full_name}</span> : <span className="text-blue-300">{shift.formatted_start}</span> to <span className="text-red-400">{shift.formatted_end}</span> by {shift.assigner}</p>
+                                            <p><span className="text-yellow-400">{shift.employee.full_name}</span> : <span className="text-blue-300">{shift.formatted_start}</span> to <span className="text-red-400">{shift.formatted_end}</span> assigned by {shift.assigner}</p>
                                         </div>
                                         <div>
                                             <RedButton onClick={() => deleteShift(shift.id)} label='Delete' color="red" />

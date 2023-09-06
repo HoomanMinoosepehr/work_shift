@@ -12,6 +12,7 @@ import { Alert } from "./components/Alert";
 import { OwnerAuth } from "./components/OwnerAuth";
 import { NotFound } from "./components/NotFound";
 import { SetShifts } from "./components/SetShifts";
+import { Schedule } from "./components/Schedule";
 
 function App() {
   const navigate = useNavigate();
@@ -65,6 +66,7 @@ function App() {
         <Route path="employees" element={<Employees/>} />
         <Route path="employees/new" element={<NewEmployee setAlert={setAlert}/>} />
         <Route path="shifts" element={<SetShifts setAlert={setAlert}/>} />
+        <Route path="schedule" element={<Schedule />} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
     </div>

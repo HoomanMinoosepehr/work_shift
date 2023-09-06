@@ -25,6 +25,14 @@ class Api::V1::ShiftsController < ApplicationController
         end
     end
 
+    def schedule
+        today_date = Date.today
+        end_date = today_date + 20.days
+        employee = Employee.find session[:id]
+        shifts = employee.shifts.where(date: today_date..end_date).order(:date)
+        render json: shifts, each_serializer: ScheduleSerializer
+    end
+
 
     private
 

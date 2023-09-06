@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       delete 'sessions' => 'sessions#destroy'
       get 'sessions' => 'sessions#current'
       post 'assign' => 'shifts#index'
+      get 'schedule' => 'shifts#schedule'
     end
   end
 end
