@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import { get, req } from "../request";
-import { GreenButton } from "./Button";
+import { GreenButton, RedButton } from "./Button";
 
 
 
@@ -54,6 +54,18 @@ export function SetShifts(props) {
                 }
             })
             
+    }
+
+    const deleteShift = (id) => {
+        req(`shifts/${id}`, {}, "DELETE")
+            .then(data => {
+                if(data.status === 200) {
+                    props.setAlert({ color: "yellow", message: "Shift deleted successfully." })
+                    assigning(date.date)
+                } else {
+                    props.setAlert({ color: 'red', message: data.message })
+                }
+            })
     }
 
     return (
@@ -118,8 +130,13 @@ export function SetShifts(props) {
                         ) : (
                             assigned.map(shift => {
                                 return (
-                                    <div className="border rounded-md bg-green-800 text-white mt-2 px-2">
-                                        <p><span className="text-yellow-400">{shift.employee.full_name}</span>: <span className="text-blue-300">{shift.formatted_start}</span> to <span className="text-red-400">{shift.formatted_end}</span></p>
+                                    <div className="border rounded-md bg-green-800 text-white mt-2 px-2 py-1 flex content-center justify-between">
+                                        <div>
+                                            <p><span className="text-yellow-400">{shift.employee.full_name}</span> : <span className="text-blue-300">{shift.formatted_start}</span> to <span className="text-red-400">{shift.formatted_end}</span></p>
+                                        </div>
+                                        <div>
+                                            <RedButton onClick={() => deleteShift(shift.id)} label='Delete' color="red" />
+                                        </div>
                                     </div>
                                 )
                             })

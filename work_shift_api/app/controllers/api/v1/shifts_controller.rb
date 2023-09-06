@@ -22,6 +22,15 @@ class Api::V1::ShiftsController < ApplicationController
         # render json: { date: date.date.to_s, start: date.start_time.to_s, time: date.start_time }
     end
 
+    def destroy
+        shift = Shift.find params[:id]
+        if shift.destroy
+            render json: {status: 200}
+        else
+            render json: {status: shift.errors.full_messages}
+        end
+    end
+
 
     private
 
