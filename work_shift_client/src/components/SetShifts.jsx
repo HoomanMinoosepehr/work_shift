@@ -130,9 +130,18 @@ export function SetShifts(props) {
                         ) : (
                             assigned.map(shift => {
                                 return (
-                                    <div className="border rounded-md bg-green-800 text-white mt-2 px-2 py-1 flex content-center justify-between">
+                                    <div className="border
+                                    rounded-md
+                                    bg-green-800
+                                    text-white
+                                    mt-2
+                                    px-2
+                                    py-1
+                                    flex
+                                    content-center
+                                    justify-between">
                                         <div>
-                                            <p><span className="text-yellow-400">{shift.employee.full_name}</span> : <span className="text-blue-300">{shift.formatted_start}</span> to <span className="text-red-400">{shift.formatted_end}</span></p>
+                                            <p><span className="text-yellow-400">{shift.employee.full_name}</span> : <span className="text-blue-300">{shift.formatted_start}</span> to <span className="text-red-400">{shift.formatted_end}</span> by {shift.assigner}</p>
                                         </div>
                                         <div>
                                             <RedButton onClick={() => deleteShift(shift.id)} label='Delete' color="red" />

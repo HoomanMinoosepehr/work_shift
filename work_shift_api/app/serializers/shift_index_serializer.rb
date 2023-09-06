@@ -1,5 +1,5 @@
 class ShiftIndexSerializer < ActiveModel::Serializer
-  attributes :id, :formatted_start, :formatted_end, :formatted_date
+  attributes :id, :formatted_start, :formatted_end, :formatted_date, :assigner
   belongs_to :employee, serializer: EmployeeShiftSerializer
 
   def formatted_date
