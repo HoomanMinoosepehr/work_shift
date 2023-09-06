@@ -2,7 +2,8 @@ class ScheduleSerializer < ActiveModel::Serializer
   attributes :formatted_date, :formatted_start, :formatted_end
 
   def formatted_date
-    Date.parse(object.date.to_s)
+    date = Date.parse(object.date.to_s)
+    return date.strftime('%a, %b %d, %Y')
   end
 
   def formatted_start
