@@ -23,7 +23,7 @@ class Api::V1::ManagersController < ApplicationController
     def show
         manager = Manager.find params[:id]
         if manager
-            render json: { manager: manager, full_name: manager.full_name, status: 200 }
+            render json: manager, serializer: ManagerShowSerializer
         else
             render json: { message: 'Something went wrong, please try again later.', status: 422 }
         end

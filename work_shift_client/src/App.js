@@ -51,7 +51,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col w-screen h-screen">
       <NavBar user={user} logOut={logOut} />
       { alert ? 
         <Alert {...alert} setAlert={setAlert}/>

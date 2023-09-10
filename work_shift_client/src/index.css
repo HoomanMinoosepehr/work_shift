@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "../node_modules/react-calendar/dist/Calendar.css";
 
 body {
   margin: 0;

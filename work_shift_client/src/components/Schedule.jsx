@@ -14,7 +14,7 @@ export function Schedule(props) {
 
     return (
         <div>
-            <p className="text-2xl">Your next shifts:</p>
+            <p className="text-2xl">Up coming shifts:</p>
             {shifts.length > 0 ? (
                 shifts.map((shift) => {
                     return (<div className="m-2 p-1 border rounded-md bg-slate-500 text-white">

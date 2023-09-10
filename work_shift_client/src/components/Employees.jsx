@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { get } from "../request";
 import { useNavigate } from "react-router-dom";
 import { GreenButton } from "./Button";
+import employee_pic from '../Pictures/employee.jpg'
 
 
 
@@ -18,14 +19,17 @@ export function Employees(props) {
 
 
     return (
-        <div>
-            <div>
+        <div className="w-full h-full flex justify-center bg-cover bg-center" style={{backgroundImage: `url(${employee_pic})`}}>
+            <div className="w-full h-full bg-gray-600 bg-opacity-50 flex justify-center">
+                <div className="sm:w-1/2 absolute top-20">
+                    <h1 className="text-3xl text-blue-900">List of Company's Employees:</h1>
                 { employees.length > 0 ? (
                     employees.map((employee, index) => {
                         return (
                             <div key={index}>
                             <button className="border
-                            w-1/2
+                            bg-opacity-60
+                            w-full
                             rounded-md
                             mt-4
                             flex
@@ -49,5 +53,6 @@ export function Employees(props) {
                 </div>
             </div>
         </div>
+    </div>
     )
 }
