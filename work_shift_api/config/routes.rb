@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :companies ,only: [:create]
       resources :shifts, only: [:create, :destroy]
       resources :managers, only: [:create, :index, :update, :show, :destroy]
-      resources :employees, only: [:create, :index]
+      resources :employees, only: [:create, :index, :show, :destroy, :update]
       post 'sessions' => 'sessions#create'
       delete 'sessions' => 'sessions#destroy'
       get 'sessions' => 'sessions#current'

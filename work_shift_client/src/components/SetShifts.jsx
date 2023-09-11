@@ -30,7 +30,6 @@ export function SetShifts(props) {
         req(`assign`, {date: date})
             .then(data => {
                 setAssigned(data)
-                console.log(data)
             })
     }
 
@@ -40,7 +39,6 @@ export function SetShifts(props) {
             ...shift,
             [name]: value
         })
-        console.log(shift)
     }
 
     const assign = () => {

@@ -3,6 +3,7 @@ import { GreenButton } from "./Button";
 import { Input } from "./Input";
 import { req } from "../request";
 import { useNavigate } from "react-router-dom";
+import addManager from '../Pictures/addManager.jpg'
 
 
 
@@ -31,48 +32,49 @@ export function NewManager(props) {
 
 
     return (
-        <div>
-            Add a New Manager:
-            <Input 
-            label='Name' 
-            id="first_name" 
-            placeholder="First Name" 
-            onChange={onChange} 
-            />
+        <div className="w-full h-full flex bg-center bg-cover justify-center items-center" style={{backgroundImage: `url(${addManager})`}}>
+            <div className="w-1/4 rounded-xl py-9 px-16 absolute top-32 flex justify-center items-center flex-col bg-amber-100 bg-opacity-70 min-w-fit">
+                <h1 className="text-3xl">Add a New Manager:</h1>
+                <Input 
+                label='Name' 
+                id="first_name" 
+                placeholder="First Name" 
+                onChange={onChange} 
+                />
 
-            <Input 
-            label='Family' 
-            id="last_name" 
-            placeholder="Last Name" 
-            onChange={onChange} 
-            />
+                <Input 
+                label='Family' 
+                id="last_name" 
+                placeholder="Last Name" 
+                onChange={onChange} 
+                />
 
-            <Input 
-            label='Email' 
-            id="email" 
-            placeholder="Email address" 
-            onChange={onChange} 
-            />
+                <Input 
+                label='Email' 
+                id="email" 
+                placeholder="Email address" 
+                onChange={onChange} 
+                />
 
-            <Input 
-            label='Password' 
-            type='password' 
-            id="password" 
-            onChange={onChange} 
-            />
+                <Input 
+                label='Password' 
+                type='password' 
+                id="password" 
+                onChange={onChange} 
+                />
 
-            <Input 
-            label='Re-Enter Password' 
-            type="password" 
-            id="password_confirmation" 
-            onChange={onChange} 
-            />
+                <Input 
+                label='Re-Enter Password' 
+                type="password" 
+                id="password_confirmation" 
+                onChange={onChange} 
+                />
 
-            <GreenButton 
-            label='Add Employee' 
-            onClick={onSubmit} 
-            />
-            
+                <GreenButton 
+                label='Add Employee' 
+                onClick={onSubmit} 
+                />
+            </div>
         </div>
     )
 }

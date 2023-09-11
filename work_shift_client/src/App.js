@@ -63,7 +63,7 @@ function App() {
         <Route path="sign-in" element={<SignIn setAlert={setAlert} current={current}/>} />
         <Route path="managers" element={<OwnerAuth user={user} setAlert={setAlert} page={<Managers setAlert={setAlert}/>}/>} />
         <Route path="managers/new" element={<NewManager setAlert={setAlert}/>} />
-        <Route path="employees" element={<Employees/>} />
+        <Route path="employees" element={<Employees setAlert={setAlert}/>} />
         <Route path="employees/new" element={<NewEmployee setAlert={setAlert}/>} />
         <Route path="shifts" element={<SetShifts setAlert={setAlert}/>} />
         <Route path="schedule" element={<Schedule />} />

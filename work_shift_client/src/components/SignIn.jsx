@@ -34,7 +34,7 @@ export function SignIn(props) {
 
     return (
         <div className="p-3 h-full w-full flex justify-center items-center bg-cover bg-center" style={{backgroundImage: `url(${fingerPrint})`}}>
-            <div className="flex flex-col h-fit bg-amber-400 bg-opacity-40 rounded-xl px-3 py-9 w-1/4 items-center">
+            <div className="flex flex-col h-fit bg-amber-400 bg-opacity-40 rounded-xl px-3 py-9 w-1/4 items-center min-w-fit">
                 <h1 className="text-4xl text-blue-900">Sign In:</h1>
 
                 <Input 
