@@ -24,11 +24,12 @@ export function Alert(props) {
         items-center
         ${bgColor[props.color]}
         bg-opacity-70
-        text-white`}>
+        text-white
+        z-10`}>
             <div>
                 {Array.isArray(props.message) ? (
                     props.message.map((message, index) => (
-                        <p key={index}>{message}</p>
+                        <p key={index}>- {message}</p>
                     ))
                 ) : (
                     <p>{props.message}</p>

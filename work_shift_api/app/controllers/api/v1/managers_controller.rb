@@ -29,6 +29,16 @@ class Api::V1::ManagersController < ApplicationController
         end
     end
 
+    def update
+        manager = Manager.find params[:id]
+
+        if manager.update_columns(manager_params.to_h)
+            render json: { status: 200 }
+        else
+            render json: { message: manager.errors.full_messages, status: 422 }
+        end
+    end
+
     def destroy
         manager = Manager.find params[:id]
         if manager.destroy

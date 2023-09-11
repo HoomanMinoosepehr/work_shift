@@ -3,11 +3,13 @@ import { get, req } from "../request"
 import { GreenButton, RedButton, YellowButton } from "./Button"
 import { useNavigate } from "react-router-dom"
 import managerPic from "../Pictures/managers.jpg"
+import { Input } from "./Input"
 
 
 export function Managers(props) {
     const [managers, setManagers] = useState([])
     const [manager, setManager] = useState(null)
+    const [edit, setEdit] = useState(null)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -19,6 +21,40 @@ export function Managers(props) {
         get(`managers/${id}`)
             .then(data => {
                 setManager(data)
+            })
+    }
+
+    const editManager = () => {
+        setEdit({...manager})
+        setManager(null)
+    }
+
+    const editChange = e => {
+        const {name, value} = e.target;
+        setEdit({
+            ...edit,
+            [name]: value
+        })
+    }
+
+    const submitEdit = () => {
+        req(`managers/${edit.id}`, {manager: {...edit}}, "PATCH")
+            .then(data => {
+                if(data.status === 200) {
+                    get("managers")
+                        .then(data => setManagers(data))
+
+                        get(`managers/${edit.id}`)
+                            .then(data => {
+                                setManager(data)
+                            })
+
+                    setEdit(null)
+
+                    props.setAlert({ color: 'green', message: "Manager Updated Successfully!" })
+                } else {
+                    props.setAlert({ color: 'red', message: data.message })
+                }
             })
     }
 
@@ -81,11 +117,19 @@ export function Managers(props) {
                             <p>Email: {manager.email}</p>
                             <p>Date of Join: {manager.join_date}</p>
                             <div className="flex justify-between mt-4">
-                                <YellowButton label="Edit"/>
+                                <YellowButton label="Edit" onClick={editManager}/>
                                 <RedButton label="Delete" onClick={() => destroy(manager.id)}/>
                             </div>
                         </div>
-                    ) : null}
+                    ) : edit != null ? (
+                        <div className="text-white m-4 py-4 px-7 bg-slate-800 bg-opacity-70 rounded-2xl">
+                            <h1 className="text-2xl">Edit Manager:</h1>
+                            <Input label='First name' id='first_name' value={edit.first_name} onChange={editChange} /> 
+                            <Input label='Last name' id='last_name' value={edit.last_name} onChange={editChange} /> 
+                            <Input label='Email' id='email' value={edit.email} onChange={editChange} /> 
+                            <GreenButton label="Edit" onClick={submitEdit} />
+                        </div>
+                    ) : null }
                 </div>
             </div>
         </div>

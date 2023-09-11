@@ -53,7 +53,7 @@ export function SignIn(props) {
 
                 <div className="mt-3">
                     <label htmlFor="">Role:</label><br />
-                    <select className="p-2 border-yellow-600 rounded-md" name="type" id="type" onChange={onChange}>
+                    <select className="p-2 border-yellow-600 rounded-md bg-blue-900 bg-opacity-70 text-white" name="type" id="type" onChange={onChange}>
                         <option value='' disabled selected>Select Your Role *</option>
                         <option value="employee">Employee</option>
                         <option value="manager">Manager</option>
