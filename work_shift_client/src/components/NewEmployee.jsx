@@ -23,6 +23,7 @@ export function NewEmployee(props) {
         req("employees", {employee})
             .then(data => {
                 if (data.status === 200) {
+                    props.setAlert({ color: 'green', message: data.message })
                     navigate('/employees')
                 } else {
                     props.setAlert({ color: 'red', message: data.message })

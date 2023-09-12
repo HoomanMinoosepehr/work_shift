@@ -7,6 +7,8 @@ class Company < ApplicationRecord
     validates :email, uniqueness: true, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
     validates :first_name, presence: true
     validates :last_name, presence: true
+    validates :password, length: { minimum: 8 }
+    validates_format_of :password, with: /\A(?=.*[A-Z])(?=.*[1-9])/, message: 'Password needs to have at least one number and one uppercase letter in its body.'
 
 
     def full_name
