@@ -76,39 +76,42 @@ export function Managers(props) {
     return (
         <div className="w-full h-full flex justify-center bg-cover bg-center" style={{backgroundImage: `url(${managerPic})`}}>
             <div className="w-full h-full bg-gray-600 bg-opacity-50 flex justify-center">
-                <div className="sm:w-1/2 absolute top-20">
-                    <h1 className="text-3xl text-white">
-                        List of Company's Managers:
-                    </h1>
-                    { managers.length > 0 ? (
-                        managers.map((manager, index) => {
-                            return (
-                                <div key={index}>
-                                    <button className="border
-                                    bg-opacity-60
-                                    w-full
-                                    rounded-md
-                                    mt-4
-                                    flex
-                                    py-1
-                                    bg-gray-300
-                                    hover:bg-gray-700
-                                    hover:text-white
-                                    px-2
-                                    duration-200"
-                                    onClick={() => directShow(manager.id)}
-                                    >
-                                        <p>{manager.full_name}</p>
-                                    </button>
-                                </div>
-                            )
-                        })
-                    ) : (
-                        <p>You haven't added any managers yet!</p>
-                    )}
-                    <div className="m-1">
-                        <GreenButton label='Add Manager' onClick={newManager}/>
+                <div className="sm:w-3/4 absolute top-20 flex">
+                    <div className="grow">
+                        <h1 className="text-3xl text-white">
+                            List of Company's Managers:
+                        </h1>
+                        { managers.length > 0 ? (
+                            managers.map((manager, index) => {
+                                return (
+                                    <div key={index}>
+                                        <button className="border
+                                        bg-opacity-60
+                                        w-full
+                                        rounded-md
+                                        mt-4
+                                        flex
+                                        py-1
+                                        bg-gray-300
+                                        hover:bg-gray-700
+                                        hover:text-white
+                                        px-2
+                                        duration-200"
+                                        onClick={() => directShow(manager.id)}
+                                        >
+                                            <p>{manager.full_name}</p>
+                                        </button>
+                                    </div>
+                                )
+                            })
+                        ) : (
+                            <p>You haven't added any managers yet!</p>
+                        )}
+                        <div className="m-1">
+                            <GreenButton label='Add Manager' onClick={newManager}/>
+                        </div>
                     </div>
+                    <div>
                     { manager != null ? (
                         <div className="text-white m-4 py-4 px-7 bg-slate-800 bg-opacity-70 rounded-2xl">
                             <h2 className="text-2xl">Manager: {manager.full_name}</h2>   
@@ -130,6 +133,7 @@ export function Managers(props) {
                             <GreenButton label="Edit" onClick={submitEdit} />
                         </div>
                     ) : null }
+                    </div>
                 </div>
             </div>
         </div>

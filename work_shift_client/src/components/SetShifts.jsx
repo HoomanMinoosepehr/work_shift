@@ -11,7 +11,6 @@ export function SetShifts(props) {
     const [employees, setEmployees] = useState([])
     const [shift, setShift] = useState(null)
     const [assigned, setAssigned] = useState([])
-    const [names, setNames] = useState([])
 
     useEffect(() => {
         get(`employees`)
@@ -161,9 +160,9 @@ export function SetShifts(props) {
                     </div>
                 )
                 :
-                <>
-                    <p>Select a Date.</p>
-                </>
+                <div className="m-5">
+                    <p className="text-red-700 text-3xl">"Select a Date"</p>
+                </div>
                 }   
             </div>
         </div>
