@@ -23,6 +23,7 @@ export function SignIn(props) {
         req('sessions', user)
             .then(data => {
                 if (data.status === 200) {
+                    console.log(data)
                     props.setAlert({ color:'green', message: data.message })
                     props.current()
                     navigate('/')

@@ -16,7 +16,12 @@ export function Employees(props) {
     useEffect(() => {
         get('employees')
             .then(data => {
-                setEmployees(data)
+                if(data.status === 403) {
+                    props.setAlert({ color: 'red', message: data.message })
+                    navigate('/')
+                } else {
+                    setEmployees(data)
+                }
             })
     }, [])
 

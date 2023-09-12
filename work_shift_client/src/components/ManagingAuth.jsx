@@ -2,11 +2,12 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export function OwnerAuth(props) {
+export function ManagingAuth (props){
+
     const navigate = useNavigate();
 
     if (props.user != null) {
-        if (props.user.type === 'Owner'){
+        if (props.user.type === 'Owner' || 'Manager'){
             return(props.page)
         } else {
             navigate('/')
@@ -18,5 +19,4 @@ export function OwnerAuth(props) {
         props.setAlert({ color: 'red', message: 'You are not allowed to use this page!'});
         return null
     }
-
 }

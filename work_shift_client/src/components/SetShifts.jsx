@@ -3,6 +3,7 @@ import Calendar from "react-calendar";
 import { get, req } from "../request";
 import { GreenButton, RedButton } from "./Button";
 import timing from '../Pictures/timing.jpg'
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -11,11 +12,17 @@ export function SetShifts(props) {
     const [employees, setEmployees] = useState([])
     const [shift, setShift] = useState(null)
     const [assigned, setAssigned] = useState([])
+    const navigate = useNavigate()
 
     useEffect(() => {
         get(`employees`)
             .then(data => {
-                setEmployees(data)
+                if(data.status === 403) {
+                    props.setAlert({ color: 'red', message: data.message })
+                    navigate('/')
+                } else {
+                    setEmployees(data)
+                }
             })
     }, [])
 

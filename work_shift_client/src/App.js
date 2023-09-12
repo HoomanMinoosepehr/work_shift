@@ -9,7 +9,6 @@ import { Employees } from "./components/Employees";
 import { NewManager } from "./components/NewManager";
 import { NewEmployee } from "./components/NewEmployee";
 import { Alert } from "./components/Alert";
-import { OwnerAuth } from "./components/OwnerAuth";
 import { NotFound } from "./components/NotFound";
 import { SetShifts } from "./components/SetShifts";
 import { Schedule } from "./components/Schedule";
@@ -30,8 +29,7 @@ function App() {
           setUser({
             id: data.id,
             name: data.name,
-            type: data.type,
-            // company_id: data
+            type: data.type
           })
         } else {
           setUser(null)
@@ -61,8 +59,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="sign-in" element={<SignIn setAlert={setAlert} current={current}/>} />
-        <Route path="managers" element={<OwnerAuth user={user} setAlert={setAlert} page={<Managers setAlert={setAlert}/>}/>} />
-        <Route path="managers/new" element={<NewManager setAlert={setAlert}/>} />
+        <Route path="managers" element={<Managers setAlert={setAlert}/>} />
+        <Route path="managers/new" element={<NewManager setAlert={setAlert} />} />
         <Route path="employees" element={<Employees setAlert={setAlert}/>} />
         <Route path="employees/new" element={<NewEmployee setAlert={setAlert}/>} />
         <Route path="shifts" element={<SetShifts setAlert={setAlert}/>} />

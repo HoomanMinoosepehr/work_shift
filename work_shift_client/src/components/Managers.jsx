@@ -14,7 +14,14 @@ export function Managers(props) {
 
     useEffect(() => {
         get("managers")
-            .then(data => setManagers(data))
+            .then(data => {
+                if(data.status === 403) {
+                    props.setAlert({color: 'red', message: data.message})
+                    navigate('/')
+                } else {
+                    setManagers(data)
+                }
+            })
     }, [])
 
     const directShow = (id) => {
@@ -61,7 +68,7 @@ export function Managers(props) {
     const destroy = (id) => {
         req(`managers/${id}`, null, "DELETE")
             .then(data => {
-                if(data.status != 422) {
+                if(data.status === 200) {
                     props.setAlert({ color: 'yellow', message: data.message })
                     setManager(null)
                     get('managers').then(data => setManagers(data))
