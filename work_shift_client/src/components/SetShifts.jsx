@@ -139,7 +139,7 @@ export function SetShifts(props) {
                             </div>
                             <div className="border border-blue-900 grow rounded-md m-1 p-2">
                                 <p className="text-xl text-blue-900">Assigned Shifts:</p>
-                                { assigned.length == 0 ? (
+                                { assigned.length === 0 ? (
                                     <p className="text-xl text-red-500 m-2">No Shift been assigned for this date!</p>
                                 ) : (
                                     assigned.map(shift => {

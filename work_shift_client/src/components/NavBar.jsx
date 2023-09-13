@@ -1,15 +1,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { get } from "../request";
 import { RedButton } from "./Button";
 
 
 export function NavBar(props) {
     const navigate = useNavigate()
-    
-    const onClick = () => {
-        get('sessions')
-         .then(data => console.log(data))
-    }
 
     return (
         <div className="flex flex-row justify-around content-center absolute w-full h-16 p-3 bg-blue-900 bg-opacity-70">

@@ -1,6 +1,5 @@
 import 'react-calendar/dist/Calendar.css';
 import homePic from '../Pictures/home.jpg'
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { RedButton } from './Button';
 
@@ -9,7 +8,6 @@ import { RedButton } from './Button';
 
 export default function Home(props) {
     const [call, setCall] = useState(null)
-    const navigate = useNavigate()
 
 
     return (
