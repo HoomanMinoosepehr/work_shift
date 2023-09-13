@@ -5,6 +5,7 @@ class CreateShifts < ActiveRecord::Migration[7.0]
       t.time :start_time
       t.time :end_time
       t.references :employee, null: false, foreign_key: true
+      t.references :company, null: false, foreign_key: true
 
       t.timestamps
     end

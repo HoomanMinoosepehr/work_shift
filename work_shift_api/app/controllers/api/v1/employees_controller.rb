@@ -1,5 +1,7 @@
 class Api::V1::EmployeesController < ApplicationController
 
+    before_action :authenticate_manager!
+
     def create
 
         @employee = Employee.new employee_params

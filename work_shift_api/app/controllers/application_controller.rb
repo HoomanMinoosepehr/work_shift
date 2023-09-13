@@ -1,7 +1,23 @@
 class ApplicationController < ActionController::API
 
-    def authenticate_use!
-        render json: { message: 'You need to sign in first!', status: 422 } unless user_logged_in?
+    def authenticate_user!
+        render json: { message: 'You need to sign in first!', status: 403 } unless user_logged_in?
+    end
+
+    def authenticate_owner!
+        render json: { message: "Only Owner has access to this page!", status: 403 } unless owner_logged_in?
+    end
+
+    def authenticate_manager!
+        render json: { message: "Only Managers or the Owner have access to this page!", status: 403 } unless manager_logged_in?
+    end
+
+    def owner_logged_in?
+        session[:type] === 'Owner' ? true : false
+    end
+
+    def manager_logged_in?
+        session[:type] === 'Manager' || session[:type] === 'Owner' ? true : false
     end
 
 

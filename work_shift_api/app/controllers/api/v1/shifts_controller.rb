@@ -2,6 +2,7 @@ class Api::V1::ShiftsController < ApplicationController
 
     def create
         shift = Shift.new shift_params
+        shift.company_id = session[:company_id]
         shift.assigner = session[:full_name]
 
         if shift.save
@@ -12,7 +13,9 @@ class Api::V1::ShiftsController < ApplicationController
     end
 
     def index
-        shifts = Shift.where(date: params[:date])
+        company = Company.find session[:company_id]
+        allShifts = company.shifts
+        shifts = allShifts.where(date: params[:date])
         render json: shifts, each_serializer: ShiftIndexSerializer
     end
 

@@ -1,5 +1,7 @@
 class Api::V1::ManagersController < ApplicationController
 
+    before_action :authenticate_owner!
+
     def index
         owner = Company.find session[:id]
         manager = owner.managers
