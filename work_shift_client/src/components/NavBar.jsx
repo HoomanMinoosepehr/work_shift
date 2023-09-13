@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { get } from "../request";
 import { RedButton } from "./Button";
 
 
 export function NavBar(props) {
+    const navigate = useNavigate()
     
     const onClick = () => {
         get('sessions')
@@ -34,7 +35,7 @@ export function NavBar(props) {
                                 <NavLink to={'/schedule'}>Schedule</NavLink>
                             )}
                         <div className="mx-2 px-2">
-                            <p>Hello, {props.user.name}</p>
+                            <p>Hello, <a className="underline cursor-pointer" onClick={() => navigate(`account/${props.user.id}`)}>{props.user.name}</a></p>
                             <p>Your Role in Company is : <span className="text-yellow-400">{props.user.type}</span></p>
                         </div>
                             <RedButton onClick={props.logOut} label='Log Out' />

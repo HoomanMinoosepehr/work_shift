@@ -113,7 +113,7 @@ export function Employees(props) {
                                     )
                                 })
                             ) : (
-                                <p>There is no Employee yet.</p>
+                                <p className="text-white text-xl">There is no Employee yet.</p>
                             )}
                             <div className="mt-3">
                                 <GreenButton label='Add Employee' onClick={newEmployee}/>

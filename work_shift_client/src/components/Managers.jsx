@@ -113,7 +113,7 @@ export function Managers(props) {
                                     )
                                 })
                             ) : (
-                                <p>You haven't added any managers yet!</p>
+                                <p className="text-white text-xl mt-3">You haven't added any managers yet!</p>
                             )}
                             <div className="m-1">
                                 <GreenButton label='Add Manager' onClick={newManager}/>
