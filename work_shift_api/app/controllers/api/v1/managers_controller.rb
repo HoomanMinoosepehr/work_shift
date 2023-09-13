@@ -1,6 +1,7 @@
 class Api::V1::ManagersController < ApplicationController
 
-    before_action :authenticate_owner!
+    before_action :authenticate_owner!, except: [:show, :update, :password]
+    before_action :authenticate_account_owner!
 
     def index
         owner = Company.find session[:id]
@@ -41,6 +42,20 @@ class Api::V1::ManagersController < ApplicationController
         end
     end
 
+    def password
+        manager = Manager.find params[:id]
+        
+        if manager.authenticate(params.require(:manager)[:old_password])
+            if manager.update(password_params)    
+                render json: {status: 200}
+            else
+                render json: {message: manager.errore.full_messages, status: 422}
+            end
+        else
+            render json: {message: 'Wrong information!', status: 403}
+        end
+    end
+
     def destroy
         manager = Manager.find params[:id]
         if manager.destroy
@@ -57,6 +72,13 @@ class Api::V1::ManagersController < ApplicationController
             :first_name,
             :last_name,
             :email,
+            :password,
+            :password_confirmation
+        )
+    end
+
+    def password_params
+        params.require(:manager).permit(
             :password,
             :password_confirmation
         )

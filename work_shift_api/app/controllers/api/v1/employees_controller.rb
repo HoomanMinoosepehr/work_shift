@@ -1,6 +1,7 @@
 class Api::V1::EmployeesController < ApplicationController
 
-    before_action :authenticate_manager!
+    before_action :authenticate_manager!, except: [:show, :update, :password]
+    before_action :authenticate_account_employee!
 
     def create
 
@@ -47,6 +48,20 @@ class Api::V1::EmployeesController < ApplicationController
         end
     end
 
+    def password
+        employee = Employee.find params[:id]
+        
+        if employee.authenticate(params.require(:employee)[:old_password])
+            if employee.update(password_params)    
+                render json: {status: 200}
+            else
+                render json: {message: employee.errore.full_messages, status: 422}
+            end
+        else
+            render json: {message: 'Wrong information!', status: 403}
+        end
+    end
+
     def destroy
         employee = Employee.find params[:id]
 
@@ -64,6 +79,13 @@ class Api::V1::EmployeesController < ApplicationController
             :first_name,
             :last_name,
             :email,
+            :password,
+            :password_confirmation
+        )
+    end
+
+    def password_params
+        params.require(:employee).permit(
             :password,
             :password_confirmation
         )

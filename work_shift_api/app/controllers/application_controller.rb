@@ -20,6 +20,15 @@ class ApplicationController < ActionController::API
         session[:type] === 'Manager' || session[:type] === 'Owner' ? true : false
     end
 
+    def authenticate_account_owner!
+        if session[:type]
+            session[:id] === params[:id] ? true : false
+        end
+    end
+
+    def authenticate_account_employee!
+        session[:type] === 'Manager' || session[:type] === 'Owner' || session[:id] === params[:id] ? true : false
+    end
 
     def user_logged_in?
         @current_user.present?

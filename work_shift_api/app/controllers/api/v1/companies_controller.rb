@@ -18,10 +18,44 @@ class Api::V1::CompaniesController < ApplicationController
 
     end
 
+    def show
+        company = Company.find params[:id]
+
+        if company
+            render json: company, serializer: CompanySerializer
+        else
+            render json: { message: "Something went wrong!", status: 422 }
+        end
+    end
+
     def employees
         company = Company.find params[:id]
 
         render json: {employees: company.employees}
+    end
+
+    def update
+        company = Company.find params[:id]
+
+        if company.update_columns(company_params.to_h)
+            render json: { status: 200 }
+        else
+            render json: { message: company.errors.full_messages, status: 422 }
+        end
+    end
+
+    def password
+        company = Company.find params[:id]
+        
+        if company.authenticate(params.require(:company)[:old_password])
+            if company.update(password_params)    
+                render json: {status: 200}
+            else
+                render json: {message: company.errore.full_messages, status: 422}
+            end
+        else
+            render json: {message: 'Wrong information!', status: 403}
+        end
     end
 
     private
@@ -34,7 +68,13 @@ class Api::V1::CompaniesController < ApplicationController
             :password,
             :password_confirmation,
             :company_name,
+        )
+    end
 
+    def password_params
+        params.require(:company).permit(
+            :password,
+            :password_confirmation
         )
     end
 

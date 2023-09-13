@@ -126,7 +126,7 @@ export function Employees(props) {
                                 <p>First name: {employee.first_name}</p> 
                                 <p>Last name: {employee.last_name}</p>
                                 <p>Email: {employee.email}</p>
-                                <p>Date of Join: {employee.editted_date}</p>
+                                <p>Date of Join: {employee.join_date}</p>
                                 <div className="flex justify-between mt-4">
                                     <YellowButton label="Edit" onClick={editEmployee}/>
                                     <RedButton label="Delete" onClick={() => destroy(employee.id)}/>

@@ -12,7 +12,7 @@ export function NavBar(props) {
             </div>
             
             {
-                props.user ? (
+                props.user.length !== 0 ? (
                     <div className="flex flex-row justify-around items-center grow text-gray-100">
                             { props.user.type === 'Owner' ? (
                                 <div className="flex justify-around content-center grow">

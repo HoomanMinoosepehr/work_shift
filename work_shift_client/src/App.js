@@ -18,7 +18,7 @@ import { AdminLogin } from "./components/AdminLogin";
 function App() {
   const navigate = useNavigate();
   const [alert, setAlert] = useState(null)
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     current()
@@ -34,7 +34,7 @@ function App() {
             type: data.type
           })
         } else {
-          setUser(null)
+          setUser([])
         }
       })
   }
@@ -45,7 +45,7 @@ function App() {
         if (data.status === 200) {
           setAlert({ color:'yellow', message: data.message })
           navigate('/')
-          setUser(null)
+          setUser([])
         }
       })
   }
@@ -67,7 +67,7 @@ function App() {
         <Route path="employees/new" element={<NewEmployee setAlert={setAlert}/>} />
         <Route path="shifts" element={<SetShifts setAlert={setAlert}/>} />
         <Route path="schedule" element={<Schedule />} />
-        <Route path="account/:id" element={<Account user={user} />} />
+        <Route path="account/:id" element={<Account user={user} setUser={setUser} setAlert={setAlert} />} />
         <Route path="adminLogin" element={<AdminLogin setAlert={setAlert} />} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
