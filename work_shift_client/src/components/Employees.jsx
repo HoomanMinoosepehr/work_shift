@@ -88,7 +88,7 @@ export function Employees(props) {
                 <div className="w-full bg-gray-600 bg-opacity-50 flex justify-center">
                     <div className="sm:w-3/4 mt-32 mb-10 top-20 flex justify-center">
                         <div className="grow">
-                            <h1 className="text-3xl text-blue-900">List of Company's Employees:</h1>
+                            <h1 className="text-3xl text-white">List of Company's Employees:</h1>
                             { employees.length > 0 ? (
                                 employees.map((employee, index) => {
                                     return (

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-
+    
     def authenticate_user!
         render json: { message: 'You need to sign in first!', status: 403 } unless user_logged_in?
     end

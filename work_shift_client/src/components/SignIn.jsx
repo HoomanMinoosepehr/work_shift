@@ -51,7 +51,7 @@ export function SignIn(props) {
                 id="password" 
                 onChange={onChange} 
                 />
-
+{/* 
                 <div className="mt-3">
                     <label htmlFor="">Role:</label><br />
                     <select className="p-2 border-yellow-600 rounded-md bg-blue-900 bg-opacity-70 text-white" name="type" id="type" onChange={onChange}>
@@ -60,7 +60,7 @@ export function SignIn(props) {
                         <option value="manager">Manager</option>
                         <option value="owner">Owner</option>
                     </select>
-                </div>
+                </div> */}
 
                 <div className="mt-3">
 

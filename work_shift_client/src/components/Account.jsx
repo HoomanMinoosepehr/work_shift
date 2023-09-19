@@ -139,6 +139,7 @@ export function Account(props) {
                             props.setAlert({ color: 'green', message: "Password updated successfully" })
                             navigate('/sign-in')
                             props.setUser([])
+                            props.logOut()
                         } else {
                             props.setAlert({color: 'red', message: data.message})
                         }
@@ -151,6 +152,7 @@ export function Account(props) {
                             props.setAlert({ color: 'green', message: "Password updated successfully" })
                             navigate('/sign-in')
                             props.setUser([])
+                            props.logOut()
                         } else {
                             props.setAlert({color: 'red', message: data.message})
                         }
@@ -163,6 +165,7 @@ export function Account(props) {
                             props.setAlert({ color: 'green', message: "Password updated successfully" })
                             navigate('/sign-in')
                             props.setUser([])
+                            props.logOut()
                         } else {
                             props.setAlert({color: 'red', message: data.message})
                         }
@@ -179,7 +182,7 @@ export function Account(props) {
                     <div className="flex mt-32">
                         {account ? (
                             <div className="text-white m-4 h-fit py-4 px-7 bg-slate-800 bg-opacity-70 rounded-2xl">
-                                <h2 className="text-2xl">Manager: {account.full_name}</h2>   
+                                <h2 className="text-2xl">Generel Information: {account.full_name}</h2>   
                                 <p>First name: {account.first_name}</p> 
                                 <p>Last name: {account.last_name}</p>
                                 <p>Email: {account.email}</p>
@@ -194,7 +197,7 @@ export function Account(props) {
                         )}
                         {edit !== null ? (
                              <div className="text-white h-fit m-4 py-4 px-7 bg-slate-800 bg-opacity-70 rounded-2xl">
-                                    <h1 className="text-2xl">Edit Manager:</h1>
+                                    <h1 className="text-2xl">Edit Account:</h1>
                                     <Input label='First name' id='first_name' value={edit.first_name} onChange={editChange} /> 
                                     <Input label='Last name' id='last_name' value={edit.last_name} onChange={editChange} /> 
                                     <Input label='Email' id='email' value={edit.email} onChange={editChange} /> 
