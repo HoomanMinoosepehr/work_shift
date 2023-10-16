@@ -1,14 +1,14 @@
-#work shif
+# work shif
 Version: v1.0.0
 Framework: 
     back-end: Ruby on Rails
     front-End: React.js
 Database: PSQL
 
-##Introduction
+## Introduction
 "WorkShift" is an application designed for companies with part-time employees who require shift assignments. With this application, the company owner can appoint managers to oversee employees, or they can personally manage the employees. Additionally, both managers and the company owner have the capability to add or remove employees from the company and assign shifts to them.
 
-##Users
+## Users
 There are 4types of users:
 
 Owner:
@@ -23,7 +23,7 @@ Employees:
 Admin:
     The web-site need an admin who can create the first and main account for the owner, there is no sign-up page for web-site users and for signing-up they only can call and ask for the service and after payment the admin would create the company's first account.
 
-##Different parts:
+## Different parts:
 
 Manager Part:
     Access to this section is exclusive to the owner, who can view a list of their managers. By clicking on each manager, additional details become available. Furthermore, the owner has the ability to edit certain manager information, such as their first name, last name, or email address, as well as the option to delete any manager as needed.
@@ -44,7 +44,7 @@ Account:
 Admin login:
     There is no nav-link for this part on the navbar because only the administrator has access to this part. On this page, after loging-in the admin can create ne account for the companies.
 
- ##Back-end:
+ ## Back-end:
  On the back-end we have 4 different tables, one for companies, one for managers, one for employees, one for shifts and one for web-site admins.
     Companies and managers and employees each has these columns:
         1) first name
