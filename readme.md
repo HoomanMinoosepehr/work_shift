@@ -1,9 +1,9 @@
 # work shif
-Version: v1.0.0
-Framework: 
-    back-end: Ruby on Rails
-    front-End: React.js
-Database: PSQL
+### Version: v1.0.0
+## Frameworks: 
+- Back-End: Ruby on Rails
+- Front-End: React.js
+- Database: PSQL
 
 ## Introduction
 "WorkShift" is an application designed for companies with part-time employees who require shift assignments. With this application, the company owner can appoint managers to oversee employees, or they can personally manage the employees. Additionally, both managers and the company owner have the capability to add or remove employees from the company and assign shifts to them.
