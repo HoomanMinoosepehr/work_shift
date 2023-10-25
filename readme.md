@@ -1,4 +1,4 @@
-# work shif
+# work shift
 ### Version: v1.0.0
 ## Frameworks: 
 - Back-End: Ruby on Rails
@@ -9,57 +9,57 @@
 "WorkShift" is an application designed for companies with part-time employees who require shift assignments. With this application, the company owner can appoint managers to oversee employees, or they can personally manage the employees. Additionally, both managers and the company owner have the capability to add or remove employees from the company and assign shifts to them.
 
 ## Users
-There are 4types of users:
+There are 4 types of users:
 
-Owner:
-    The owner has the main account of the applcation and the can add managers or employees by creating account for them or assign shifts to their employees, also they can remove who ever they want.
+#### Owner:
+The owner has the main account of the applcation and the can add managers or employees by creating account for them or assign shifts to their employees, also they can remove who ever they want.
 
-Manager:
-    Managers are added by the owner to the company and after joining the company the can sign-in and manage the employees (add or remove by creating or deleting their account) and also assigning shifts to them.
+#### Manager:
+Managers are added by the owner to the company and after joining the company the can sign-in and manage the employees (add or remove by creating or deleting their account) and also assigning shifts to them.
 
-Employees:
-    Employees are added by the managers or the owner and after signing-in they can see their upcomming shifts for the next 10days.
+#### Employees:
+Employees are added by the managers or the owner and after signing-in they can see their upcomming shifts for the next 10days.
 
-Admin:
-    The web-site need an admin who can create the first and main account for the owner, there is no sign-up page for web-site users and for signing-up they only can call and ask for the service and after payment the admin would create the company's first account.
+#### Admin:
+The web-site need an admin who can create the first and main account for the owner, there is no sign-up page for web-site users and for signing-up they only can call and ask for the service and after payment the admin would create the company's first account.
 
-## Different parts:
+## Different sections:
 
-Manager Part:
-    Access to this section is exclusive to the owner, who can view a list of their managers. By clicking on each manager, additional details become available. Furthermore, the owner has the ability to edit certain manager information, such as their first name, last name, or email address, as well as the option to delete any manager as needed.
+#### Manager section:
+Access to this section is exclusive to the owner, who can view a list of their managers. By clicking on each manager, additional details become available. Furthermore, the owner has the ability to edit certain manager information, such as their first name, last name, or email address, as well as the option to delete any manager as needed.
 
-Employee Part:
-    This section functions similarly to the manager's part, with both managers and the owner having access. Here, they can add, remove, or edit employees within the company.
+#### Employee section:
+This section functions similarly to the manager's part, with both managers and the owner having access. Here, they can add, remove, or edit employees within the company.
 
-Shifts:
-    This section is dedicated to assigning shifts to employees, accessible by managers and the owner. On this page, there is a calendar where you can pick a date, select an employee from your company, and specify the start and end times for their shift. Afterward, you can save the assigned shift.
+#### Shifts section:
+This section is dedicated to assigning shifts to employees, accessible by managers and the owner. On this page, there is a calendar where you can pick a date, select an employee from your company, and specify the start and end times for their shift. Afterward, you can save the assigned shift.
     Additionally, when selecting a date on the calendar, not only can you set shifts for each employee on that date, but you can also view previously assigned shifts and delete them.
 
-Schedule:
-    This part is only accessible by the emplyees ang by going there they can see their upcomming shifts for the next 10days.
+#### Schedule section:
+This section is only accessible by the emplyees ang by going there they can see their upcomming shifts for the next 10days.
 
-Account:
-    Every user has access to this page, where they can view and edit their personal information, including the option to change their password. Changing the password is essential for this application, as users do not create their accounts themselves. After the initial sign-in, they are required to update their password.
+#### Account section:
+Every user has access to this page, where they can view and edit their personal information, including the option to change their password. Changing the password is essential for this application, as users do not create their accounts themselves. After the initial sign-in, they are required to update their password.
 
-Admin login:
-    There is no nav-link for this part on the navbar because only the administrator has access to this part. On this page, after loging-in the admin can create new account for the companies.
+#### Admin login:
+There is no nav-link for this part on the navbar because only the administrator has access to this part. On this page, after loging-in the admin can create new account for the companies.
 
  ## Back-end:
  On the back-end we have 4 different tables, one for companies, one for managers, one for employees, one for shifts and one for web-site admins.
 - Companies and managers and employees each has these columns:
-1) first name
-2) last name
-3) email
-4) password
+    1) first name
+    2) last name
+    3) email
+    4) password
 
 - Shifts table has these columns:
-1) date
-2) start time
-3) end time
+    1) date
+    2) start time
+    3) end time
 
-- companies table has on to many relation with these tables
-1) managers
-2) employees
-3) shifts
+- companies table has on to many relation with the bellow tables:
+    1) managers
+    2) employees
+    3) shifts
 
 - also, there is a one to many relation between employees table and shifts table.
