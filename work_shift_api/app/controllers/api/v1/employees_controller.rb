@@ -5,15 +5,22 @@ class Api::V1::EmployeesController < ApplicationController
 
     def create
 
-        @employee = Employee.new employee_params
-        company = company_get
+        role = Role.new(email: params.require(:employee)[:email], user_type: 'employee')
 
-        @employee[:company_id] = company.id
+        if role.save
+            @employee = Employee.new employee_params
+            company = company_get
 
-        if @employee.save
-            render json: { message: "Employee added to your company.", status: 200 }
+            @employee[:company_id] = company.id
+
+            if @employee.save
+                render json: { message: "Employee added to your company.", status: 200 }
+            else
+                role.destroy
+                render json: { message: @employee.errors.full_messages, status: 422 }
+            end
         else
-            render json: { message: @employee.errors.full_messages, status: 422 }
+            render json: { message: role.errors.full_messages, status: 200 }
         end
 
     end

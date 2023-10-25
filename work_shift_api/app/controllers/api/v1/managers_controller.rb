@@ -11,14 +11,21 @@ class Api::V1::ManagersController < ApplicationController
 
     def create
         
-        manager = Manager.new manager_params
-        company = Company.find session[:id]
-        manager.company = company
+        role = Role.new(email: params.require(:manager)[:email], user_type: 'manager')
 
-        if manager.save
-            render json: { message: "Manager added successfully!", status: 200 }
+        if role.save
+            manager = Manager.new manager_params
+            company = Company.find session[:id]
+            manager.company = company
+
+            if manager.save
+                render json: { message: "Manager added successfully!", status: 200 }
+            else
+                role.destroy
+                render json: { message: manager.errors.full_messages, status: 422 }
+            end
         else
-            render json: { message: manager.errors.full_messages, status: 422 }
+            render json: { message: role.errors.full_messages, status: 422 }
         end
 
     end
