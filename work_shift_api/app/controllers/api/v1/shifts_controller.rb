@@ -1,5 +1,6 @@
 class Api::V1::ShiftsController < ApplicationController
 
+    # creating the assigned shift and adding it to the table
     def create
         shift = Shift.new shift_params
         shift.company_id = session[:company_id]
@@ -12,12 +13,14 @@ class Api::V1::ShiftsController < ApplicationController
         end
     end
 
+    # showing all the assigned shifts for all users based on an specific date
     def index
         company = Company.find session[:company_id]
         allShifts = company.shifts
         shifts = allShifts.where(date: params[:date])
         render json: shifts, each_serializer: ShiftIndexSerializer
     end
+
 
     def destroy
         shift = Shift.find params[:id]
@@ -28,6 +31,7 @@ class Api::V1::ShiftsController < ApplicationController
         end
     end
 
+    # showing the upcoming shifts for a specific user for the next 10 days
     def schedule
         today_date = Date.today
         end_date = today_date + 15.days

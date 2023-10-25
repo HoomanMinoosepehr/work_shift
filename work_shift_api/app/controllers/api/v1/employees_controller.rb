@@ -3,6 +3,7 @@ class Api::V1::EmployeesController < ApplicationController
     before_action :authenticate_manager!, except: [:show, :update, :password]
     before_action :authenticate_account_employee!
 
+    # add new amployee
     def create
 
         role = Role.new(email: params.require(:employee)[:email], user_type: 'employee')
@@ -24,7 +25,8 @@ class Api::V1::EmployeesController < ApplicationController
         end
 
     end
-    
+   
+    # showing the list of all company's employees
     def index
         
         company = company_get
@@ -35,6 +37,7 @@ class Api::V1::EmployeesController < ApplicationController
         
     end
     
+    # showing an specific employee's info
     def show
         employee = Employee.find params[:id]
 
@@ -45,6 +48,7 @@ class Api::V1::EmployeesController < ApplicationController
         end
     end
 
+    # update amployee's info
     def update
         employee = Employee.find params[:id]
 
@@ -55,6 +59,7 @@ class Api::V1::EmployeesController < ApplicationController
         end
     end
 
+    # update employee's password
     def password
         employee = Employee.find params[:id]
         
@@ -69,6 +74,7 @@ class Api::V1::EmployeesController < ApplicationController
         end
     end
 
+    # delete amployee
     def destroy
         employee = Employee.find params[:id]
 

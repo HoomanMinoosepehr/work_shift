@@ -1,5 +1,6 @@
 class Api::V1::AdminsController < ApplicationController
 
+    # add new admin
     def create
         admin = Admin.find_by_user_name(params[:user_name])
 

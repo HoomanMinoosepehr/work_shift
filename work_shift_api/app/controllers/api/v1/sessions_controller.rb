@@ -1,10 +1,12 @@
 class Api::V1::SessionsController < ApplicationController
 
     def create
+
+        # checking the user's role based on their email
         role = Role.find_by_email params[:email]
         
         if role
-
+            # finding the user based on the email
             type = role.user_type
             if type === 'owner'
                 @user = Company.find_by_email params[:email]
@@ -14,6 +16,7 @@ class Api::V1::SessionsController < ApplicationController
                 @user = Employee.find_by_email params[:email]
             end
 
+            # check the email and make the session if it was correct
             if @user && @user.authenticate(params[:password])
                 session[:id] = @user.id
                 session[:full_name] = @user.full_name
@@ -35,6 +38,7 @@ class Api::V1::SessionsController < ApplicationController
 
     end
 
+    # action for logging out the user
     def destroy 
 
         session[:id] = nil
@@ -45,6 +49,7 @@ class Api::V1::SessionsController < ApplicationController
 
     end
 
+    # sending the logged in user's information
     def current
 
         render json: { id: session[:id], name: session[:full_name], type: session[:type], company_id: session[:company_id] }

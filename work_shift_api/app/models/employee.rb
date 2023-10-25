@@ -8,6 +8,10 @@ class Employee < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  # The bellow validations are commented out to make the testing simpler 
+  # validates :password, length: { minimum: 8 }
+  # validates_format_of :password, with: /\A(?=.*[A-Z])(?=.*[1-9])/, message: 'Password needs to have at least one number and one uppercase letter in its body.'
+
 
   def full_name
     "#{first_name} #{last_name}"

@@ -3,12 +3,14 @@ class Api::V1::ManagersController < ApplicationController
     before_action :authenticate_owner!, except: [:show, :update, :password]
     before_action :authenticate_account_owner!
 
+    # showing all the company's managers
     def index
         owner = Company.find session[:id]
         manager = owner.managers
         render json: manager
     end
 
+    # function to create a new manager
     def create
         
         role = Role.new(email: params.require(:manager)[:email], user_type: 'manager')
@@ -30,6 +32,7 @@ class Api::V1::ManagersController < ApplicationController
 
     end
 
+    # function for shwing the specific manager's info
     def show
         manager = Manager.find params[:id]
         if manager
@@ -39,6 +42,7 @@ class Api::V1::ManagersController < ApplicationController
         end
     end
 
+    # update manager
     def update
         manager = Manager.find params[:id]
 
@@ -49,6 +53,7 @@ class Api::V1::ManagersController < ApplicationController
         end
     end
 
+    # update manager's password
     def password
         manager = Manager.find params[:id]
         
@@ -63,6 +68,7 @@ class Api::V1::ManagersController < ApplicationController
         end
     end
 
+    # delete specific manager
     def destroy
         manager = Manager.find params[:id]
         if manager.destroy

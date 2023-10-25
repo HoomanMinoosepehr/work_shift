@@ -1,13 +1,18 @@
 class Api::V1::CompaniesController < ApplicationController
 
+    # add new company
     def create
 
+        # first finding the admin in the table
         admin = Admin.find_by_user_name(params.require(:company)[:user_name])
 
+        # if the admin's informations was correct application will log them in and will show the page to create the new company's account
         if admin && admin.authenticate(params.require(:company)[:admin_password])
+            # add the role to the roles table
             role = Role.new(email: params.require(:company)[:email], user_type: 'owner')
             
             if role.save
+                # creating the company object and save it on the table
                 @company = Company.new company_params
                 if @company.save
                     render json: { company: @company, message: 'The company been created successfully!', status: 200 }
@@ -24,6 +29,7 @@ class Api::V1::CompaniesController < ApplicationController
 
     end
 
+    # showing the specific company's info
     def show
         company = Company.find params[:id]
 
@@ -34,12 +40,14 @@ class Api::V1::CompaniesController < ApplicationController
         end
     end
 
+    # show all the company's employees
     def employees
         company = Company.find params[:id]
 
         render json: {employees: company.employees}
     end
 
+    # update the company's info
     def update
         company = Company.find params[:id]
 
@@ -50,6 +58,7 @@ class Api::V1::CompaniesController < ApplicationController
         end
     end
 
+    # update company's password
     def password
         company = Company.find params[:id]
         
