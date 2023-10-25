@@ -1,0 +1,3 @@
+After pulling the repo and install the dependencies on both fronend and backend, then create the database and run the seed file and after running the servers, use this URL: http://127.0.0.1:8081/adminLogin to enter to the admin login page and there by using these information (user_name: hooman.minoo, password: 1H234567) you can create the company's account.
+After creating the company's account you can login and in your account you can add managers and employees and assign shifts for your employees.
+After creating account for the managers and employees you can also login to their accounts and check the application's abilities.
