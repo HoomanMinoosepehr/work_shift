@@ -42,24 +42,24 @@ Account:
     Every user has access to this page, where they can view and edit their personal information, including the option to change their password. Changing the password is essential for this application, as users do not create their accounts themselves. After the initial sign-in, they are required to update their password.
 
 Admin login:
-    There is no nav-link for this part on the navbar because only the administrator has access to this part. On this page, after loging-in the admin can create ne account for the companies.
+    There is no nav-link for this part on the navbar because only the administrator has access to this part. On this page, after loging-in the admin can create new account for the companies.
 
  ## Back-end:
  On the back-end we have 4 different tables, one for companies, one for managers, one for employees, one for shifts and one for web-site admins.
-    Companies and managers and employees each has these columns:
-        1) first name
-        2) last name
-        3) email
-        4) password
+- Companies and managers and employees each has these columns:
+1) first name
+2) last name
+3) email
+4) password
 
-    shifts table has these columns:
-        1) date
-        2) start time
-        3) end time
+- Shifts table has these columns:
+1) date
+2) start time
+3) end time
 
-    companies table has on to many relation with these tables
-        1) managers
-        2) employees
-        3) shifts
+- companies table has on to many relation with these tables
+1) managers
+2) employees
+3) shifts
 
-    also, there is a one to many relation between employees table and shifts table.
+- also, there is a one to many relation between employees table and shifts table.
