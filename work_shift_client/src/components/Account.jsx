@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { get, req } from "../request"
-import { GreenButton, RedButton, YellowButton } from "./Button"
+import { GreenButton, YellowButton } from "./Button"
 import { Input } from "./Input"
 import accountPic from '../Pictures/account.jpg'
 

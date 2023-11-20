@@ -1,4 +1,4 @@
-const baseUrl = 'http://127.0.0.1:3000/api/v1/';
+const baseUrl = 'http://localhost:3030/api/v1/';
 
 export async function get(path) {
     const res = await fetch(baseUrl + path, { credentials: 'include' })

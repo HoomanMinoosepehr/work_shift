@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  
+  database: 
+    image: postgres:latest
+    container_name: db
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: work_shift
+      POSTGRES_PASSWORD: 137278
+    networks:
+      - work_shift_network
+
+  api:
+    build: work_shift_api
+    container_name: backend
+    hostname: api
+    image: work_shift_api
+    entrypoint: /app/entrypoint.sh
+    stdin_open: true
+    tty: true
+    working_dir: /app
+    volumes:
+      - ./api:/api
+    depends_on:
+      - database
+    networks:
+      - work_shift_network
+    ports:
+      - '3030:3030'
+
+  client:
+    build: work_shift_client
+    container_name: frontend
+    hostname: client
+    image: work_shift_client
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./client:/client
+    networks:
+      - work_shift_network
+
+volumes:
+    postgres_data:
+
+networks:
+  work_shift_network:
+    driver: bridge
