@@ -1,0 +1,16 @@
+FROM ruby:3.0.2
+
+WORKDIR ./app
+
+COPY Gemfile ./Gemfile
+COPY Gemfile.lock ./Gemfile.lock
+
+RUN apt-get update -qq && apt-get install -y node.js
+
+RUN bundle install
+
+COPY . ./
+
+EXPOSE 3030
+
+CMD [ "rails", "s", "-p", "3030", "-b", "localhost" ]
