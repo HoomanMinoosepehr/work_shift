@@ -17,7 +17,7 @@ This application is dockerized, so for running the application, after cloning th
 - After creating account for the managers and employees you can also login to their accounts and check the application's abilities.
 
 ## Users
-There are 4 types of users:
+There are 3 types of users:
 
 #### Owner:
 The owner has the main account of the applcation and the can add managers or employees by creating account for them or assign shifts to their employees, also they can remove who ever they want.
@@ -28,8 +28,6 @@ Managers are added by the owner to the company and after joining the company the
 #### Employees:
 Employees are added by the managers or the owner and after signing-in they can see their upcomming shifts for the next 10days.
 
-#### Admin:
-The web-site need an admin who can create the first and main account for the owner, there is no sign-up page for web-site users and for signing-up they only can call and ask for the service and after payment the admin would create the company's first account.
 
 ## Different sections:
 
@@ -48,9 +46,6 @@ This section is only accessible by the emplyees ang by going there they can see 
 
 #### Account section:
 Every user has access to this page, where they can view and edit their personal information, including the option to change their password. Changing the password is essential for this application, as users do not create their accounts themselves. After the initial sign-in, they are required to update their password.
-
-#### Admin login:
-There is no nav-link for this part on the navbar because only the administrator has access to this part. On this page, after loging-in the admin can create new account for the companies.
 
  ## Back-end:
  On the back-end we have 4 different tables, one for companies, one for managers, one for employees, one for shifts and one for web-site admins.
