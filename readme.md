@@ -12,9 +12,7 @@
 This application is dockerized, so for running the application, after cloning the repo, make sure that you are at the root directory(where the docker-compose file is placed), run this command on your terminal "docker compose build" and after creating images, using command "docker compose run" run the containers and afterward by going to 'localhost:5050' on your browser, you can enter the application.
 
 ## How to test:
-- You could use this URL: http://localhost:5050/adminLogin for going to the admin login page and there by using these information (user_name: hooman.minoo, password: 1H234567) you can create the company's account.
-- After creating the company's account you can login and in your account and add managers and employees and assign shifts to your employees.
-- After creating account for the managers and employees you can also login to their accounts and check the application's abilities.
+Use this link: http://work-shift.onrender.com/
 
 ## Users
 There are 3 types of users:
