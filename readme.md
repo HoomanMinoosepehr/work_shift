@@ -9,7 +9,7 @@
 "WorkShift" is an application designed for companies with part-time employees who require shift assignments. With this application, the company owner can appoint managers to oversee employees, or they can personally manage the employees. Additionally, both managers and the company owner have the capability to add or remove employees from the company and assign shifts to them.
 
 ## How to run:
-This application is dockerized, so to run the application, after cloning the repo, make sure that you are at the root directory(where the docker-compose file is placed), run this command on your terminal "docker-compose build" and after creating images, using command "docker compose run" run the containers and afterward by going to 'localhost:5050' on your browser, you can enter the application.
+This application is dockerized, so to run the application, after cloning the repo, make sure that you are at the root directory(where the docker-compose file is placed), run this command on your terminal "docker-compose build" and after creating images, using command "docker-compose run" run the containers and afterward by going to 'localhost:5050' on your browser, you can enter the application.
 
 ## How to test:
 Use this link: http://work-shift.onrender.com/
@@ -18,7 +18,7 @@ Use this link: http://work-shift.onrender.com/
 There are 3 types of users:
 
 #### Owner:
-The owner has the main account of the applcation and the can add managers or employees by creating account for them or assign shifts to their employees, also they can remove who ever they want.
+The owner has the main account of the application and they can add managers or employees by creating account for them or assign shifts to their employees, also they can remove who ever they want.
 
 #### Manager:
 Managers are added by the owner to the company and after joining the company the can sign-in and manage the employees (add or remove by creating or deleting their account) and also assigning shifts to them.
