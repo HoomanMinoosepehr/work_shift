@@ -18,7 +18,7 @@ Use this link: http://work-shift.onrender.com/
 There are 3 types of users:
 
 #### Owner:
-The owner has the main account of the application and they can add managers or employees by creating account for them or assign shifts to their employees, also they can remove who ever they want.
+The owner has the main account of the application and they can add managers or employees by creating accounts for them or assigning shifts to their employees, also they can remove whoever they want.
 
 #### Manager:
 Managers are added by the owner to the company and after joining the company the can sign-in and manage the employees (add or remove by creating or deleting their account) and also assigning shifts to them.
