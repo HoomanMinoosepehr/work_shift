@@ -24,7 +24,7 @@ The owner has the main account of the application and they can add managers or e
 Managers are added by the owner to the company and after joining the company they can sign in and manage the employees (add or remove by creating or deleting their account) and also assign shifts to them.
 
 #### Employees:
-Employees are added by the managers or the owner and after signing in they can see their upcoming shifts for the next 10days.
+Employees are added by the managers or the owner and after signing in they can see their upcoming shifts for the next 10 days.
 
 
 ## Different sections:
