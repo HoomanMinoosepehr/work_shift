@@ -36,11 +36,11 @@ Access to this section is exclusive to the owner, who can view a list of their m
 This section functions similarly to the manager's part, with both managers and the owner having access. Here, they can add, remove, or edit employees within the company.
 
 #### Shifts section:
-This section is dedicated to assigning shifts to employees, accessible by managers and the owner. On this page, there is a calendar where you can pick a date, select an employee from your company, and specify the start and end times for their shift. Afterward, you can save the assigned shift.
+This section is dedicated to assigning shifts to employees, accessible to managers and the owner. On this page, there is a calendar where you can pick a date, select an employee from your company, and specify the start and end times for their shift. Afterward, you can save the assigned shift.
     Additionally, when selecting a date on the calendar, not only can you set shifts for each employee on that date, but you can also view previously assigned shifts and delete them.
 
 #### Schedule section:
-This section is only accessible by the emplyees ang by going there they can see their upcomming shifts for the next 10days.
+This section is only accessible by the emplyees ang by going there they can see their upcoming shifts for the next 10 days.
 
 #### Account section:
 Every user has access to this page, where they can view and edit their personal information, including the option to change their password. Changing the password is essential for this application, as users do not create their accounts themselves. After the initial sign-in, they are required to update their password.
