@@ -40,7 +40,7 @@ This section is dedicated to assigning shifts to employees, accessible to manage
     Additionally, when selecting a date on the calendar, not only can you set shifts for each employee on that date, but you can also view previously assigned shifts and delete them.
 
 #### Schedule section:
-This section is only accessible by the emplyees ang by going there they can see their upcoming shifts for the next 10 days.
+This section is only accessible to the emplyees ang by going there they can see their upcoming shifts for the next 10 days.
 
 #### Account section:
 Every user has access to this page, where they can view and edit their personal information, including the option to change their password. Changing the password is essential for this application, as users do not create their accounts themselves. After the initial sign-in, they are required to update their password.
