@@ -46,7 +46,7 @@ This section is only accessible to the employees and by going there they can see
 Every user has access to this page, where they can view and edit their personal information, including the option to change their password. Changing the password is essential for this application, as users do not create their accounts themselves. After the initial sign-in, they are required to update their password.
 
  ## Back-end:
- On the back-end we have 4 different tables, one for companies, one for managers, one for employees, one for shifts and one for web-site admins.
+ On the back end we have 4 different tables, one for companies, one for managers, one for employees, one for shifts and one for web-site admins.
 - Companies and managers and employees each has these columns:
     1) first name
     2) last name
