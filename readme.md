@@ -53,7 +53,7 @@ Every user has access to this page, where they can view and edit their personal 
     3) email
     4) password
 
-- Shifts table has these columns:
+- Shift table has these columns:
     1) date
     2) start time
     3) end time
