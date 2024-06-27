@@ -58,7 +58,7 @@ Every user has access to this page, where they can view and edit their personal 
     2) start time
     3) end time
 
-- The companies table has on to many relation with the bellow tables:
+- The companies table has on to many relations with the bellow tables:
     1) managers
     2) employees
     3) shifts
