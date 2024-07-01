@@ -36,7 +36,7 @@ Access to this section is exclusive to the owner, who can view a list of their m
 This section functions similarly to the manager's part, with both managers and the owner having access. Here, they can add, remove, or edit employees within the company.
 
 #### Shifts section:
-This section is dedicated to assigning shifts to employees, accessible to managers and the owner. On this page, there is a calendar where you can pick a date, select an employee from your company, and specify the start and end times for their shift. Afterward, you can save the assigned shift.
+This section is dedicated to assigning shifts to employees and is accessible to managers and the owner. On this page, there is a calendar where you can pick a date, select an employee from your company, and specify the start and end times for their shift. Afterward, you can save the assigned shift.
     Additionally, when selecting a date on the calendar, not only can you set shifts for each employee on that date, but you can also view previously assigned shifts and delete them.
 
 #### Schedule section:
