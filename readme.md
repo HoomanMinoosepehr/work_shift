@@ -1,4 +1,4 @@
-# work shift
+# WorkShift
 ### Version: v1.0.0
 ## Frameworks: 
 - Back-End: Ruby on Rails
